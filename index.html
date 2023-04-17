@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <script>
+        /*js for showing the main dropdown*/
+    function show_drop(){
+        document.getElementById("drop").style.display="block"
+    }
+    /*js for showing the dropdown under the service */
+    function show_activity(){
+        document.getElementById("activity").style.display="block"
+    }
+    /*js for hidding the main dropdown*/
+    function hide_drop(){
+        document.getElementById("drop").style.display="none"
+    }
+    /*js for hidding the dropdown under the service*/
+    function hide_activity(){
+        document.getElementById("activity").style.display="none"
+    }
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /*side navbar*/
+        aside{
+            position: fixed;
+            display: flex;
+            width: 15%;
+            background-color: black;
+            height: 85vh;
+            flex-direction: column;
+            gap: 180px;
+            color: white;
+           list-style: none; 
+        }
+        /*side navbar logo*/
+        .img{
+    display: flex;
+    justify-content: center;
+            width: 100%;
+        }
+        /*nav bar tabs*/
+        .nav{
+            text-align: center;
+        }
+        .nav li {
+padding: 10px;
+        }
+        .nav li:hover{
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+        /*header layout*/
+        .header{
+            align-items: center;
+            height: 30vh;
+            display: flex;
+            justify-content: center;
+            color: black;
+        }
+        /*body layout*/
+        .body{
+            align-items: center;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            color:white;
+            background-color: #333;  
+        }
+        /*footer layout*/
+        .footer{
+            align-items: center;
+            height: 40vh;
+            display: flex;
+            justify-content: center;
+            color:white;
+            background-color: black;  
+        }
+        /*ads styling*/
+        .ads{
+            background: transparent;
+            position: absolute;
+            height: 130vh;
+            width: 15%;
+        right: 0;
+        top: 0;
+        }
+        /*main ads*/
+        .pics{
+            display: flex;
+            align-items: center;
+            box-shadow: 0 3px 9px gainsboro;
+            height: 26vh;
+            border-radius: 12px;
+        }
+        /*logo after main ad*/
+        .break{
+            background-color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            color: white;
+            height: 18vh;
+        }
+        /*first dropdown*/
+        .about{
+background-color: black;
+color: white;
+position: fixed;
+left: 12em;
+bottom: 10em;
+list-style: none;
+display: none;
+        }
+        .about li{
+padding: 10px;
+        }
+        .about li:hover{
+            background-color: white;
+            color: black;
+            cursor: pointer;  
+        }
+        /*second dropdown*/
+        .service{
+            background-color: black;
+color: white;
+position: fixed;
+left: 18.3em;
+bottom: 7em;
+list-style: none; 
+display: none;   
+        }
+        .service li{
+            padding: 10px;
+        }
+        .service li:hover{
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+/*for smaller screen*/
+        @media screen and (max-width:650px) {
+           /*showing only the logos of the ads on smaller screen*/
+            .ads div:not(.break){
+                display: none;
+            }
+
+            .ads{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+            }
+/*second dropdown on smaller screen*/
+            .service{
+            background-color: black;
+color: white;
+position: fixed;
+left: 12.3em;
+bottom: 9em;
+list-style: none; 
+display: none;   
+        }
+        /*first dropdown on smaller screen*/
+        .about{
+background-color: black;
+color: white;
+position: fixed;
+left: 6em;
+bottom: 12em;
+list-style: none;
+display: none;
+        }
+        }
+    </style>
+</head>
+<body>
+    <!--for the side navbar-->
+  <aside>
+    <div class="img">
+<img src="do.jpg" alt="dog image" width="50%">
+    </div>
+    <!--side navbar tabs-->
+    <div class="nav">
+<li onclick="hide_drop(),hide_activity()">home <i class="fa fa-home"></i></li>
+<li onclick="hide_drop(),hide_activity()">profile <i class="fa fa-user-tie"></i></li>
+<li onclick="show_drop(),hide_activity()">about <i class="fa fa-address-book"></i></li>
+    </div>
+  </aside>
+
+<!--first dropdown-->
+  <div id="drop" class="about">
+    <li onclick="hide_activity()">Settings <i class="fa fa-gear"></i></li>
+    <li onclick="hide_activity()">Contact <i class="fa fa-phone"></i></li>
+    <li onclick="show_activity()">Service <i class="fa fa-people-carry"></i></li>
+        </div>
+
+<!--second dropdown-->
+        <div id="activity" onclick="hide_activity(),hide_drop()" class="service">
+            <li>Activity <i class="fa fa-dolly"></i></li>
+            <li>Promo <i class="fa fa-gift"></i></li>
+                </div>
+
+  <!--header layout-->
+  <div class="header">
+<h1>Header</h1>
+  </div>
+
+  <!--body layout-->
+   <div class="body">
+    <h1>Body/Content</h1>
+   </div>
+
+   <!--footer layout-->
+   <div class="footer">
+<h1>Footer</h1>
+   </div>
+
+   <!--ads-->
+   <section class="ads">
+<div class="pics">
+<img src="new.jpeg" alt="nsbt image" width="100%">
+</div>
+<br>
+<div class="break">
+    <img src="logo.png" alt="nsbt logo" width="100%">
+</div>
+<br>
+<div class="pics">
+<img src="nsb.jpg" alt="nsbt image" width="100%">
+</div>
+<br>
+<div class="break">
+    <img src="logo.png" alt="nsbt logo" width="100%">
+    </div>
+<br>
+<div class="pics">
+<img src="nsbt.jpg" alt="nsbt image" width="100%">
+</div>
+<br>
+</section>
+</body>
+</html>
